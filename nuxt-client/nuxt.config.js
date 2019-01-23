@@ -26,7 +26,7 @@ module.exports = {
         endpoints: {
           login: { url: 'login', method: 'post', propertyName: 'meta.token' },
           user: { url: 'user', method: 'get', propertyName: 'data' },
-          logout: {}
+          logout: { url: 'logout', method: 'post' }
         }
       }
     }

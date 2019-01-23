@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-sm bg-light">
         <div class="container">
             <a class="navbar-brand" href="">
-                Nuxt Laravel Auth
+                Nuxt Laravel Auth 
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false">
                 <span class="navbar-toggler-icon"></span>
@@ -17,7 +17,9 @@
                             </nuxt-link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">Register</a>
+                            <nuxt-link :to="{ name: 'register' }" class="nav-link">
+                                Register
+                            </nuxt-link>
                         </li>
                     </template>
                     <template v-if="loggedIn">
@@ -34,6 +36,10 @@
 </template>
 <script>
 export default {
-    
+    methods: {
+        logout() {
+            this.$auth.logout();
+        }
+    }
 }
 </script>
