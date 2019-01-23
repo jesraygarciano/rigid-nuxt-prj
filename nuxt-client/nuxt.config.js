@@ -31,6 +31,7 @@ module.exports = {
       }
     }
   },
+
   build: {
     vendor: ['jquery', 'bootstrap'],
     plugins: [
@@ -40,8 +41,6 @@ module.exports = {
         'window.jQuery': 'jquery'
       })
     ],
-    plugins: ['~plugins/bootstrap.js', '~plugins/mixins/user.js'],
-    
     extend (config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({
@@ -54,5 +53,5 @@ module.exports = {
     }
   },
   css: ['./node_modules/bootstrap/dist/css/bootstrap.css'],
-  plugins: ['~plugins/bootstrap.js']
+  plugins: ['~plugins/bootstrap.js', './plugins/mixins/user.js']
 }
