@@ -13,7 +13,9 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
                         <li class="nav-item">
-                            <a class="nav-link" href="">Login</a>
+                        <nuxt-link :to="{ name: 'login' }" class="nav-link">
+                            Login
+                        </nuxt-link>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="">Register</a>
