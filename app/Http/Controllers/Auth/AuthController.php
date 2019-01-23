@@ -28,4 +28,33 @@ class AuthController extends Controller
         return new UserResource($user);
 
     }
+
+    public function login(Request $request){
+
+        $this->validate($request, [
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+
+        if(!$token = auth()->attempt($request->only(['email', 'password'])))
+        {
+            return response()->json([
+                'errors' => [
+                    'email' => ['There is something wrong! We could not verify details']
+                ]
+                ], 422);
+
+                return (new UserResource($request->user()))
+                    ->addition([
+                        'meta' => [
+                            'token' => $token
+                        ]
+                    ]);
+        }
+    }
+
+    public function user(Request $request)
+    {
+        return new UserResource($request->user());
+    }
 }
