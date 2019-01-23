@@ -9,28 +9,24 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
-                    <!-- Authentication Links -->
+                    <template v-if="!loggedIn">
                         <li class="nav-item">
-                        <nuxt-link :to="{ name: 'login' }" class="nav-link">
-                            Login
-                        </nuxt-link>
+                            <nuxt-link :to="{ name: 'login' }" class="nav-link">
+                                Login
+                            </nuxt-link>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="">Register</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Krunal <span class="caret"></span>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="">
+                    </template>
+                    <template v-if="loggedIn">
+                        <li class="nav-item">
+                            <a class="nav-link" @click.prevent="logout" href="#">
                                     Logout
-                                </a>  
-                            </div>
+                            </a>  
                         </li>
+                    </template>
                 </ul>
             </div>
         </div>

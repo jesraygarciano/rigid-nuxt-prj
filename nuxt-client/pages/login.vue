@@ -45,7 +45,24 @@
 
 <script>
 export default {
-    
+    data(){
+        return{
+            userForm: {
+                email: '',
+                password: ''
+            }
+        }
+    },
+    methods: {
+        async addUser() {
+            await this.$auth.login({
+                data: this.userForm
+            });
+            this.$router.push({
+                path: '/'
+            });
+        }
+    }
 }
 </script>
 

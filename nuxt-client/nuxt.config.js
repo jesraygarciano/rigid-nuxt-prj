@@ -40,6 +40,8 @@ module.exports = {
         'window.jQuery': 'jquery'
       })
     ],
+    plugins: ['~plugins/bootstrap.js', '~plugins/mixins/user.js'],
+    
     extend (config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({
