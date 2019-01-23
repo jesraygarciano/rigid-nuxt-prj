@@ -1,7 +1,10 @@
+ const webpack = require('webpack');
+
 module.exports = {
   /*
   ** Headers of the page
   */
+
   head: {
     title: 'rigid-nuxt-client',
     meta: [
@@ -21,6 +24,14 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    vendor: ['jquery', 'bootstrap'],
+    plugins: [
+      new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery',
+        'window.jQuery' : 'jquery'
+      })
+    ],
     /*
     ** Run ESLint on save
     */
@@ -34,6 +45,8 @@ module.exports = {
         })
       }
     }
-  }
+  },
+  css : ['./node_modules/bootstrap/dist/css/bootstrap.css'],
+  plugins: ['~plugins/bootstrap.js']
 }
 
